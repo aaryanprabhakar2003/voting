@@ -1,8 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const About = () => {
+   const navigate = useNavigate();
+    
+
+    const handleClick = () => {
+      // Navigate to a new page when the button is clicked
+      navigate("/about");
+    };
+
+  
   return (
-    <div className='mb-28'>
+    <div className="mb-28">
       <section className="dark:bg-dark overflow-hidden bg-gray-100 pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
         <div className="container mx-auto px-4">
           <div className="-mx-4 flex flex-wrap items-center justify-between">
@@ -646,15 +659,18 @@ const About = () => {
                   href="javascript:void(0)"
                   className="bg-primary inline-flex items-center justify-center rounded-md border border-transparent  py-3 text-center text-base font-medium text-white hover:bg-opacity-90"
                 >
-                  <button className="rounded-full  border border-black p-3 px-5 text-black">
-                    Read More
-                  </button>
+              
+                    <button className="rounded-full  border border-black p-3 px-5 text-black" onClick={handleClick}>
+                      Read More
+                    </button>
+               
                 </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+     
     </div>
   );
 }

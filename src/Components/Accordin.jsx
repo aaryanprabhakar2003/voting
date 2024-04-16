@@ -1,233 +1,140 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const Accordin = () => {
+const Accordion = () => {
   return (
-    <div>
-      <div id="accordion-open" data-accordion="open">
-        <h2 id="accordion-open-heading-1">
-          <button
-            type="button"
-            class="flex w-full items-center justify-between gap-3 rounded-t-xl border border-b-0 border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
-            data-accordion-target="#accordion-open-body-1"
-            aria-expanded="true"
-            aria-controls="accordion-open-body-1"
-          >
-            <span class="flex items-center">
-              <svg
-                class="me-2 h-5 w-5 shrink-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>{" "}
-              What is Flowbite?
-            </span>
-            <svg
-              data-accordion-icon
-              class="h-3 w-3 shrink-0 rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-open-body-1"
-          class="hidden"
-          aria-labelledby="accordion-open-heading-1"
-        >
-          <div class="border border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is an open-source library of interactive components built
-              on top of Tailwind CSS including buttons, dropdowns, modals,
-              navbars, and more.
-            </p>
-            <p class="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{" "}
-              <a
-                href="/docs/getting-started/introduction/"
-                class="text-blue-600 hover:underline dark:text-blue-500"
-              >
-                get started
-              </a>{" "}
-              and start developing websites even faster with components on top
-              of Tailwind CSS.
-            </p>
+    <section className="dark:bg-dark relative z-20 overflow-hidden bg-white pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+      <div className="container mx-auto">
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4">
+            <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+              <span className="text-primary mb-2 block text-lg font-semibold">
+                FAQ
+              </span>
+              <h2 className="text-dark mb-4 text-3xl font-bold sm:text-[40px]/[48px] dark:text-white">
+                Any Questions? Look Here
+              </h2>
+              <p className="text-body-color dark:text-dark-6 text-base">
+                There are many variations of passages of Lorem Ipsum available
+                but the majority have suffered alteration in some form.
+              </p>
+            </div>
           </div>
         </div>
 
-
-        
-        <h2 id="accordion-open-heading-2">
-          <button
-            type="button"
-            class="flex w-full items-center justify-between gap-3 border border-b-0 border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
-            data-accordion-target="#accordion-open-body-2"
-            aria-expanded="false"
-            aria-controls="accordion-open-body-2"
-          >
-            <span class="flex items-center">
-              <svg
-                class="me-2 h-5 w-5 shrink-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              Is there a Figma file available?
-            </span>
-            <svg
-              data-accordion-icon
-              class="h-3 w-3 shrink-0 rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-open-body-2"
-          class="hidden"
-          aria-labelledby="accordion-open-heading-2"
-        >
-          <div class="border border-b-0 border-gray-200 p-5 dark:border-gray-700">
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is first conceptualized and designed using the Figma
-              software so everything you see in the library has a design
-              equivalent in our Figma file.
-            </p>
-            <p class="text-gray-500 dark:text-gray-400">
-              Check out the{" "}
-              <a
-                href="https://flowbite.com/figma/"
-                class="text-blue-600 hover:underline dark:text-blue-500"
-              >
-                Figma design system
-              </a>{" "}
-              based on the utility classes from Tailwind CSS and components from
-              Flowbite.
-            </p>
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4 lg:w-1/2">
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
           </div>
-
-
-          
-        </div>
-
-        
-        <h2 id="accordion-open-heading-3">
-          <button
-            type="button"
-            class="flex w-full items-center justify-between gap-3 border border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
-            data-accordion-target="#accordion-open-body-3"
-            aria-expanded="false"
-            aria-controls="accordion-open-body-3"
-          >
-            <span class="flex items-center">
-              <svg
-                class="me-2 h-5 w-5 shrink-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>{" "}
-              What are the differences between Flowbite and Tailwind UI?
-            </span>
-            <svg
-              data-accordion-icon
-              class="h-3 w-3 shrink-0 rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-open-body-3"
-          class="hidden"
-          aria-labelledby="accordion-open-heading-3"
-        >
-          <div class="border border-t-0 border-gray-200 p-5 dark:border-gray-700">
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
-              The main difference is that the core components from Flowbite are
-              open source under the MIT license, whereas Tailwind UI is a paid
-              product. Another difference is that Flowbite relies on smaller and
-              standalone components, whereas Tailwind UI offers sections of
-              pages.
-            </p>
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
-              However, we actually recommend using both Flowbite, Flowbite Pro,
-              and even Tailwind UI as there is no technical reason stopping you
-              from using the best of two worlds.
-            </p>
-            <p class="mb-2 text-gray-500 dark:text-gray-400">
-              Learn more about these technologies:
-            </p>
-            <ul class="list-disc ps-5 text-gray-500 dark:text-gray-400">
-              <li>
-                <a
-                  href="https://flowbite.com/pro/"
-                  class="text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  Flowbite Pro
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://tailwindui.com/"
-                  rel="nofollow"
-                  class="text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  Tailwind UI
-                </a>
-              </li>
-            </ul>
+          <div className="w-full px-4 lg:w-1/2">
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
+            <AccordionItem
+              header="How long we deliver your first blog post?"
+              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 right-0 z-[-1]">
+        <svg
+          width="1440"
+          height="886"
+          viewBox="0 0 1440 886"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            opacity="0.5"
+            d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+            fill="url(#paint0_linear)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear"
+              x1="1308.65"
+              y1="1142.58"
+              x2="602.827"
+              y2="-418.681"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#3056D3" stop-opacity="0.36" />
+              <stop offset="1" stop-color="#F5F2FD" stop-opacity="0" />
+              <stop offset="1" stop-color="#F5F2FD" stop-opacity="0.096144" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+  );
+};
+
+export default Accordion;
+
+const AccordionItem = ({ header, text }) => {
+  const [active, setActive] = useState(false);
+
+  const handleToggle = () => {
+    event.preventDefault();
+    setActive(!active);
+  };
+  return (
+    <div className="dark:bg-dark-2 mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] sm:p-8 lg:px-6 xl:px-8 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)]">
+      <button
+        className={`faq-btn flex w-full text-left`}
+        onClick={() => handleToggle()}
+      >
+        <div className="bg-primary/5 text-primary mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg dark:bg-white/5">
+          <svg
+            className={`fill-primary stroke-primary duration-200 ease-in-out ${
+              active ? "rotate-180" : ""
+            }`}
+            width="17"
+            height="10"
+            viewBox="0 0 17 10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
+              fill=""
+              stroke=""
+            />
+          </svg>
+        </div>
+
+        <div className="w-full">
+          <h4 className="text-dark mt-1 text-lg font-semibold dark:text-white">
+            {header}
+          </h4>
+        </div>
+      </button>
+
+      <div
+        className={`pl-[62px] duration-200 ease-in-out ${
+          active ? "block" : "hidden"
+        }`}
+      >
+        <p className="text-body-color dark:text-dark-6 py-3 text-base leading-relaxed">
+          {text}
+        </p>
+      </div>
     </div>
   );
-}
-
-export default Accordin
+};

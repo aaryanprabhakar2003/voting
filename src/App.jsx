@@ -1,38 +1,40 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import poweredBy from "./powered-by-vitawind-dark.png";
+
+
+
+
 import Navbar from "./Components/Navbar";
-import Carousel from "./Components/Carousel";
+
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
-import Home from "./Pages/Home";
 
-import Faq from "./Pages/Faq";
+
+
+
+
 import Api from "./Components/Api";
 import Footer from "./Components/Footer";
 import Space from "./Components/Space";
 import Testimonials from "./Components/Testimonials";
 import About from "./Components/About";
+import Home from "./Pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Accordion from "./Components/Accordin";
 
 
 
 function App() {
- 
-
   return (
     <div>
-      <Home/>
-      <Navbar/>
-      <About/>
-      <Testimonials/>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about" element={<Accordion />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
       <Footer/>
-      
-   
-<Space/>
- 
-     
-  {/* <Login/> */}
-  {/* <Signup/> */}
     </div>
   );
 }

@@ -4,6 +4,9 @@ import Card from "../Components/Card";
 import Footer from "../Components/Footer";
 import Tabs from "../Components/Tabs";
 import Api from "../Components/Api";
+import About from "../Components/About";
+import { Link } from "react-router-dom";
+import Testimonials from "../Components/Testimonials";
 
 
 const Home = () => {
@@ -98,14 +101,14 @@ const Home = () => {
                   href="#"
                   class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >
-                  
-                  <button
-                    type="button"
-                    class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800 hover:text-white  focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800 "
-                  >
-                    Login
-                  </button>
-                
+                  <Link to="/login">
+                    <button
+                      type="button"
+                      class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800 hover:text-white  focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800 "
+                    >
+                      Login
+                    </button>
+                  </Link>
                 </a>
               </li>
               <li>
@@ -113,12 +116,14 @@ const Home = () => {
                   href="#"
                   class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >
-                  <button
-                    type="button"
-                    class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800  hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
-                  >
-                    SignUp
-                  </button>
+                  <Link to="/Signup">
+                    <button
+                      type="button"
+                      class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800  hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
+                    >
+                      SignUp
+                    </button>
+                  </Link>
                 </a>
               </li>
             </ul>
@@ -156,9 +161,13 @@ const Home = () => {
           icon={obj[2].icon}
         />
       </div>
-      
-       
-    
+      <div>
+        <About />
+      </div>
+
+      <div>
+       <Testimonials/>
+      </div>
     </div>
   );
 };
