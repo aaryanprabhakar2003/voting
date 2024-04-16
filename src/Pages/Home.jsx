@@ -33,103 +33,35 @@ const Home = () => {
 
   return (
     <div>
-      <nav class="border-gray-200 bg-white dark:bg-gray-900">
-        <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2">
-          <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img
-              src="https://i.postimg.cc/HW3vdNjH/Designer.png"
-              class="h-20  rounded-full"
-              alt="Flowbite Logo"
-            />
-            <span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-              VoteEase
-            </span>
-          </a>
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="h-5 w-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-900">
-              {/* <li>
-                <a
-                  href="#"
-                  class="block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="#"
-                  class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-                >
-                  About
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="#"
-                  class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-                >
-                  Services
-                </a>
-              </li> */}
-              <li>
-                <a
-                  href="#"
-                  class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-                >
-                  <Link to="/login">
-                    <button
-                      type="button"
-                      class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800 hover:text-white  focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800 "
-                    >
-                      Login
-                    </button>
-                  </Link>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-                >
-                  <Link to="/Signup">
-                    <button
-                      type="button"
-                      class="mb-2 me-2 w-24 rounded-full border-2 border-black px-5 py-2 text-center text-sm font-medium text-black hover:bg-blue-800  hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
-                    >
-                      SignUp
-                    </button>
-                  </Link>
-                </a>
-              </li>
-            </ul>
+      <div className="fixed left-0 top-0 z-50 w-full border-b bg-white bg-opacity-80 backdrop-blur-lg">
+        <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
+          <div className="relative flex h-16 justify-between">
+            <div className="flex flex-1 items-stretch justify-start">
+              <a className="flex flex-shrink-0 items-center" href="#">
+                <img
+                  className="block h-16 w-auto scale-110"
+                  src="https://i.ibb.co/f4fwX8W/Screenshot-2024-04-16-at-8-51-56a-PM-transformed-out-removebg-preview-out.png"
+                />
+              </a>
+            </div>
+            <div className="flex flex-shrink-0 items-center space-x-8 px-2 py-3">
+              <a
+                className="text-sm font-medium text-gray-700 hover:text-indigo-700"
+                href="#"
+              >
+                Login
+              </a>
+              <a
+                className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200 "
+                href="#"
+              >
+                Sign up
+              </a>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+
       <Carousel />
 
       <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
@@ -166,7 +98,7 @@ const Home = () => {
       </div>
 
       <div>
-       <Testimonials/>
+        <Testimonials />
       </div>
     </div>
   );

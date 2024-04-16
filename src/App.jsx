@@ -19,6 +19,7 @@ import About from "./Components/About";
 import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Accordion from "./Components/Accordin";
+import Contact from "./Pages/Contact";
 
 
 
@@ -33,8 +34,9 @@ function App() {
         <Route path="/about" element={<Accordion />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<Contact/>}/>
       </Routes>
-      <Footer/>
+     
     </div>
   );
 }
