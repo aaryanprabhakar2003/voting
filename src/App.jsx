@@ -20,6 +20,7 @@ import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Accordion from "./Components/Accordin";
 import Contact from "./Pages/Contact";
+import Signup2 from "./Components/Signup2";
 
 
 
@@ -33,7 +34,7 @@ function App() {
 
         <Route path="/about" element={<Accordion />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Login />} />
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
      
