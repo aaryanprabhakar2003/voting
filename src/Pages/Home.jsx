@@ -51,12 +51,14 @@ const Home = () => {
               >
                 Login
               </a>
+              <Link to="/signup">
               <a
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200 "
                 href="#"
               >
                 Sign up
               </a>
+              </Link>
             </div>
           </div>
         </div>
