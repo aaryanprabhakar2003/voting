@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/user/signup", formData);
+      await axios.post("/user/signup", formData);
       alert("Signup successful!");
       navigate("/");
 
