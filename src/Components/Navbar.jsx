@@ -7,7 +7,7 @@ const Navbar = () => {
 const isSignupPage = location.pathname === "/signup";
 const isLoginPage = location.pathname === "/login";
 
-  return  !isSignupPage || !isLoginPage &&(
+  return  !isSignupPage && !isLoginPage &&(
     <div class=" mx-auto flex max-w-screen-xl flex-wrap items-center justify-between ">
       <div className="fixed bottom-4 left-1/2 z-50 h-16 w-[95%] max-w-lg -translate-x-1/2 rounded-full border border-gray-200 bg-white px-2 md:px-0 dark:border-gray-600 dark:bg-gray-700 ">
         <div className="mx-auto grid h-full max-w-lg grid-cols-5 ">
