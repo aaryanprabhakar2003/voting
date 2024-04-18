@@ -23,7 +23,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/user/signup", formData);
+      await axios.post(
+        "https://voting-app-2-grlv.onrender.com/user/signup",
+        formData
+      );
       alert("Signup successful!");
       navigate("/");
 
