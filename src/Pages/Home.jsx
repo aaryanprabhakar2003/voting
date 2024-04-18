@@ -7,9 +7,11 @@ import Api from "../Components/Api";
 import About from "../Components/About";
 import { Link } from "react-router-dom";
 import Testimonials from "../Components/Testimonials";
-
+import { useAuth } from "./AuthContext";
 
 const Home = () => {
+   const { isAuthenticated, userName } = useAuth();
+  
   const obj = [
     {
       icon: '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVR4nO2WPQrCQBCFv17FQvA6amdI60kEsRVyIMULeAP1DImFNimineBKYAQbdxOcRYt58Kp9Ox877B+Y/BoCGXAAbsAF2AFzoE8kzYAKcB98BqYxoA8BrIER0BGPgY2M3YFUs72VFF54ckvJlMBAA5y9rTSkrWRXGuCjFKvbG9JEsnsN8FWKdRtke5Kt53wtJ46V/z04BU6e89rWBZA0AReK0JfzNq3SdlAGdtZqbHNhxwm7QNxfPxKJMjyP8e010VRPzCeH3BXJpVoAAAAASUVORK5CYII=">',
@@ -37,30 +39,56 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
           <div className="relative flex h-16 justify-between">
             <div className="flex flex-1 items-stretch justify-start">
-              <a className="flex flex-shrink-0 items-center" href="#">
+              <a className="flex flex-shrink-0 items-center" href="/">
                 <img
                   className="block h-16 w-auto scale-110"
                   src="https://i.ibb.co/f4fwX8W/Screenshot-2024-04-16-at-8-51-56a-PM-transformed-out-removebg-preview-out.png"
+                  alt="Logo"
                 />
               </a>
             </div>
             <div className="flex flex-shrink-0 items-center space-x-8 px-2 py-3">
-              <Link to="/login">
-                <a
-                  className="text-sm font-medium text-gray-700 hover:text-indigo-700"
-                  href="#"
-                >
-                  Login
-                </a>
-              </Link>
-              <Link to="/signup">
-                <a
-                  className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200 "
-                  href="#"
-                >
-                  Sign up
-                </a>
-              </Link>
+              {isAuthenticated ? (
+                <span className="flex items-center text-sm text-black">
+                  <span>
+                    <svg
+                      class="h-6 w-6 text-gray-800 dark:text-white"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  {userName}
+                </span>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <a
+                      className="text-sm font-medium text-gray-700 hover:text-indigo-700"
+                      href="#"
+                    >
+                      Login
+                    </a>
+                  </Link>
+                  <Link to="/signup">
+                    <a
+                      className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200"
+                      href="#"
+                    >
+                      Sign up
+                    </a>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

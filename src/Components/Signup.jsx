@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Signup = () => {
+  
   return (
     <div>
       <div class="mx-auto flex max-w-4xl items-center bg-white p-4 font-[sans-serif] text-gray-800 md:h-screen">
