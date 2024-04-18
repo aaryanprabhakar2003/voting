@@ -16,7 +16,6 @@ import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Accordion from "./Components/Accordin";
 import Contact from "./Pages/Contact";
-import Space from "./Components/Space";
 
 
 
@@ -24,7 +23,7 @@ import Space from "./Components/Space";
 function App() {
   return (
     <div>
-     <Navbar/>
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -33,7 +32,6 @@ function App() {
         <Route path="/login" element={<Signup />} />
         <Route path="/signup" element={<Login />} />
         <Route path="/contact" element={<Contact/>}/>
-        <Route path="/space" element={<Space/>}/>
       </Routes>
      
     </div>
