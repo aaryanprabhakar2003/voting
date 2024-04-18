@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  return (
+   const location = useLocation();
+const isSignupPage = location.pathname === "/signup";
+
+  return  !isSignupPage &&(
     <div class=" mx-auto flex max-w-screen-xl flex-wrap items-center justify-between ">
       <div className="fixed bottom-4 left-1/2 z-50 h-16 w-[95%] max-w-lg -translate-x-1/2 rounded-full border border-gray-200 bg-white px-2 md:px-0 dark:border-gray-600 dark:bg-gray-700 ">
         <div className="mx-auto grid h-full max-w-lg grid-cols-5 ">
