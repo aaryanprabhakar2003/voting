@@ -45,19 +45,21 @@ const Home = () => {
               </a>
             </div>
             <div className="flex flex-shrink-0 items-center space-x-8 px-2 py-3">
-              <a
-                className="text-sm font-medium text-gray-700 hover:text-indigo-700"
-                href="#"
-              >
-                Login
-              </a>
+              <Link to="/login">
+                <a
+                  className="text-sm font-medium text-gray-700 hover:text-indigo-700"
+                  href="#"
+                >
+                  Login
+                </a>
+              </Link>
               <Link to="/signup">
-              <a
-                className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200 "
-                href="#"
-              >
-                Sign up
-              </a>
+                <a
+                  className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-indigo-200 "
+                  href="#"
+                >
+                  Sign up
+                </a>
               </Link>
             </div>
           </div>
