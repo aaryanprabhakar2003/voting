@@ -24,30 +24,41 @@ const Accordion = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-1/2">
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="What is eVote?
+"
+              text="eVote is an online platform designed to facilitate secure and convenient voting in elections.
+"
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="How does eVote ensure the security of the voting process?
+"
+              text="eVote uses advanced encryption techniques to secure user data and ensure that each vote is anonymous and tamper-proof.
+"
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="Who can use eVote?
+"
+              text="eVote is accessible to eligible voters who have registered on the platform and meet the requirements set by the election organizers.
+"
             />
           </div>
           <div className="w-full px-4 lg:w-1/2">
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="How do I register to vote on eVote?
+"
+              text="To register on eVote, you need to provide your identification details and verify your eligibility. Once verified, you will be able to participate in elections."
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="How are election results calculated on eVote?
+"
+              text="eVote uses a secure algorithm to tally the votes and determine the winners of an election. The results are then made available to the public.
+"
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="Can I vote using eVote from a different country?
+"
+              text="The availability of eVote for voters outside the country may depend on the election regulations and the specific election being held.
+"
             />
           </div>
         </div>

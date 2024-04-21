@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Pages/AuthContext";
-
+import * as yup from "yup"; // Import yup library
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
-const { setIsAuthenticated, setUserName } = useAuth();
+  const { setIsAuthenticated, setUserName } = useAuth();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,6 +20,29 @@ const { setIsAuthenticated, setUserName } = useAuth();
     password: "",
   });
 
+  // Define validation schema using yup
+  const validationSchema = yup.object().shape({
+    name: yup.string().required("Name is required"),
+    age: yup
+      .number()
+      .required("Age is required")
+      .positive("Age must be a positive number")
+      .integer("Age must be an integer")
+      .min(18, "Age must be at least 18 years"),
+    mobile: yup.string().required("Mobile number is required")
+    .max(10),
+    email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    aadharCardNumber: yup
+      .string()
+      .required("Aadhar card number is required")
+      .min(12)
+      .max(12),
+    password: yup.string().required("Password is required"),
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -26,42 +50,36 @@ const { setIsAuthenticated, setUserName } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await axios.post(
-        "https://voting-app-2-grlv.onrender.com/user/signup",
-        formData
-      );
+      // Validate form data against the schema
+      await validationSchema.validate(formData, { abortEarly: false });
 
-      alert("Signup successful!");
-        setIsAuthenticated(true);
-        setUserName(formData.name);
-      navigate(`/home?name=${formData.name}`);
-    
+      // If validation succeeds, proceed with form submission
+      await axios.post("http://localhost:3000/user/signup", formData);
 
-      // Optionally, you can redirect the user to the login page or do other actions after successful signup
+      // Display success toast if account is created successfully
+      toast.success("Account created successfully!");
+
+      setIsAuthenticated(true);
+      setUserName(formData.name);
+      navigate('/login');
     } catch (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        console.error("Server responded with an error:", error.response.data);
-        alert("Server responded with an error. Please try again later.");
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("No response received:", error.request);
-        alert(
-          "No response received from the server. Please check your network connection."
-        );
+      // Handle validation errors
+      if (error.name === "ValidationError") {
+        // Display only the first validation error as a toast notification
+        const errorMessage = error.inner[0].message;
+        toast.error(errorMessage); // Display validation error toast
       } else {
-        // Something happened in setting up the request that triggered an error
-        console.error("Error setting up the request:", error.message);
-        alert(
-          "An error occurred while setting up the request. Please try again later."
-        );
+        // Handle other errors
+        toast.error("An error occurred. Please try again later."); // Display generic error toast
       }
     }
   };
+
   return (
     <div>
-      <div>
+      <div className="py-12">
         <div className="mx-auto flex max-w-4xl items-center bg-white p-4 font-[sans-serif] text-gray-800 md:h-screen">
           <div className="grid items-center overflow-hidden rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] md:grid-cols-3">
             <div className="flex min-h-full flex-col justify-center space-y-16 bg-gradient-to-r from-gray-900 to-gray-700 px-4 py-4 max-md:order-1 max-md:mt-16 lg:px-8">
@@ -117,20 +135,22 @@ const { setIsAuthenticated, setUserName } = useAuth();
                     />
                   </div>
                 </div>
-                {/* <div>
-            <label className="mb-2 block text-sm font-bold">Phone Number:</label>
-            <div className="relative flex items-center">
-              <input
-                name="mobile"
-                type="text"
-                required
-                className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
-                placeholder="Enter Mobile Number"
-                value={formData.mobile}
-                onChange={handleChange}
-              />
-            </div>
-          </div> */}
+                <div>
+                  <label className="mb-2 block text-sm font-bold">
+                    Phone Number:
+                  </label>
+                  <div className="relative flex items-center">
+                    <input
+                      name="mobile"
+                      type="text"
+                      required
+                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
+                      placeholder="Enter Mobile Number"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
                 <div>
                   <label className="mb-2 block text-sm font-bold">
                     Email Id:
@@ -208,17 +228,20 @@ const { setIsAuthenticated, setUserName } = useAuth();
               </div>
               <p className="mt-6 text-center text-sm">
                 Already have an account?{" "}
+                <Link to="/login">
                 <a
-                  href="javascript:void(0);"
+               
                   className="ml-1 font-semibold text-blue-600 hover:underline"
                 >
                   Login here
                 </a>
+                </Link>
               </p>
             </form>
           </div>
         </div>
       </div>
+      <Toaster /> {/* Place the Toaster component outside of the form */}
     </div>
   );
 };
