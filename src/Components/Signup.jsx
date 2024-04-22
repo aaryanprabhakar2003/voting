@@ -21,7 +21,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await validationSchema.validate(formData, { abortEarly: false });
+      await validationSchema.validate(
+        { aadharCardNumber, password },
+        { abortEarly: false }
+      );
       const response = await axios.post("http://localhost:3000/user/login", {
         aadharCardNumber,
         password,
@@ -83,7 +86,6 @@ const Signup = () => {
                 <input
                   name="aadharCardNumber"
                   type="text"
-                 
                   class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
                   placeholder="Enter Adhaar Number"
                   value={aadharCardNumber}
@@ -101,7 +103,6 @@ const Signup = () => {
                   class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
                   placeholder="Enter password"
                   onChange={(e) => setPassword(e.target.value)}
-                  
                 />
               </div>
             </div>
@@ -116,7 +117,7 @@ const Signup = () => {
           </div>
         </form>
       </div>
-      <Toaster />
+      <Toaster/>
     </div>
   );
 };
