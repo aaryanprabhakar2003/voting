@@ -29,8 +29,11 @@ const Login = () => {
       .positive("Age must be a positive number")
       .integer("Age must be an integer")
       .min(18, "Age must be at least 18 years"),
-    mobile: yup.string().required("Mobile number is required")
-    .max(10),
+    mobile: yup
+      .string()
+      .required("Mobile number is required")
+      .required("Mobile number is required")
+      .max(10),
     email: yup
       .string()
       .email("Invalid email address")
@@ -63,7 +66,7 @@ const Login = () => {
 
       setIsAuthenticated(true);
       setUserName(formData.name);
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
       // Handle validation errors
       if (error.name === "ValidationError") {
@@ -129,7 +132,7 @@ const Login = () => {
                       type="text"
                       required
                       className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
-                      placeholder="Enter Age"
+                      placeholder="Enter age"
                       value={formData.age}
                       onChange={handleChange}
                     />
@@ -145,7 +148,7 @@ const Login = () => {
                       type="text"
                       required
                       className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
-                      placeholder="Enter Mobile Number"
+                      placeholder="Enter mobile number"
                       value={formData.mobile}
                       onChange={handleChange}
                     />
@@ -169,7 +172,7 @@ const Login = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-bold">
-                    Adhaar Number:
+                    Aadhar Number:
                   </label>
                   <div className="relative flex items-center">
                     <input
@@ -177,7 +180,7 @@ const Login = () => {
                       type="text"
                       required
                       className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
-                      placeholder="Enter Adhaar Number"
+                      placeholder="Enter aadhar number"
                       value={formData.aadharCardNumber}
                       onChange={handleChange}
                     />
@@ -229,12 +232,9 @@ const Login = () => {
               <p className="mt-6 text-center text-sm">
                 Already have an account?{" "}
                 <Link to="/login">
-                <a
-               
-                  className="ml-1 font-semibold text-blue-600 hover:underline"
-                >
-                  Login here
-                </a>
+                  <a className="ml-1 font-semibold text-blue-600 hover:underline">
+                    Login here
+                  </a>
                 </Link>
               </p>
             </form>

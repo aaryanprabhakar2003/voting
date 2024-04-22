@@ -1,26 +1,46 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import * as yup from "yup"; // Import yup library
 
 const Signup = () => {
   const [aadharCardNumber, setAadharNumber] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const validationSchema = yup.object().shape({
+    aadharCardNumber: yup
+      .string()
+      .required("Aadhar card number is required")
+      .min(12)
+      .max(12),
+    password: yup.string().required("Password is required"),
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      await validationSchema.validate(formData, { abortEarly: false });
       const response = await axios.post("http://localhost:3000/user/login", {
         aadharCardNumber,
         password,
       });
       const { token, name } = response.data;
       localStorage.setItem("token", response.data.token);
-      alert("Login successful!");
+      toast.success("Account created successfully!");
 
       navigate("/home"); // Navigate to the home page on successful login
     } catch (error) {
-      alert("Failed to login");
+      // Handle validation errors
+      if (error.name === "ValidationError") {
+        // Display only the first validation error as a toast notification
+        const errorMessage = error.inner[0].message;
+        toast.error(errorMessage); // Display validation error toast
+      } else {
+        // Handle other errors
+        toast.error("An error occurred. Please try again later."); // Display generic error toast
+      }
     }
   };
 
@@ -30,14 +50,14 @@ const Signup = () => {
         <div class="flex min-h-full flex-col justify-center space-y-16 bg-gradient-to-r from-gray-900 to-gray-700 px-4 py-4 max-md:order-1 max-md:mt-16 lg:px-8">
           <div>
             <h4 class="text-lg font-semibold text-white">
-              Create Your Account
+              Login To Your Account
             </h4>
             <p class="mt-2 text-[13px] text-white">
-              Welcome to our registration page! Get started by creating your
+              Welcome to our login page! Get started by logging in to your
               account.
             </p>
           </div>
-          <div>
+          {/* <div>
             <h4 class="text-lg font-semibold text-white">
               Simple & Secure Registration
             </h4>
@@ -45,7 +65,7 @@ const Signup = () => {
               Our registration process is designed to be straightforward and
               secure. We prioritize your privacy and data security.
             </p>
-          </div>
+          </div> */}
         </div>
         <form
           onSubmit={handleSubmit}
@@ -63,7 +83,7 @@ const Signup = () => {
                 <input
                   name="aadharCardNumber"
                   type="text"
-                  required
+                 
                   class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
                   placeholder="Enter Adhaar Number"
                   value={aadharCardNumber}
@@ -81,7 +101,7 @@ const Signup = () => {
                   class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm outline-blue-500"
                   placeholder="Enter password"
                   onChange={(e) => setPassword(e.target.value)}
-                  required
+                  
                 />
               </div>
             </div>
@@ -96,6 +116,7 @@ const Signup = () => {
           </div>
         </form>
       </div>
+      <Toaster />
     </div>
   );
 };
